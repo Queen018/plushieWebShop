@@ -11,6 +11,10 @@ Dit project was bedoel om te oefenen met de skills die ik heb en er iets leuk ui
 
 Mijn project gebruik zijn eigen JSON file maar in de JSON zijn links naar de pokemonedatbase site for the images van de plushies.
 
+## Credits
+
+Ik maak gebruik van de Pokemondatabase voor sprites
+
 ## Installatie
 
 Download dit en klik op `index.html` en dan open met een browser en dan hoor het te werken.
