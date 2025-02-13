@@ -19,7 +19,7 @@ Dit project was bedoel om te oefenen met de skills die ik heb en er iets leuk ui
 
 ## Credits
 
-Ik maak gebruik van de Pokemondatabase voor sprites [links](https://pokemondb.net/sprites#gen5)
+Ik maak gebruik van de Pokemondatabase voor sprites [pokemondb.net](https://pokemondb.net/sprites#gen5)
 
 Ik maak ook gebruik van een Framework Bootstrap 5
 
@@ -32,4 +32,4 @@ ik doe een software Developer opleiding en dit is een van me eerste projecten di
 ## Installatie
 
 Download dit en klik op `index.html` en dan open met een browser en dan hoor het te werken.
-je kan ook naar [links](https://pokeplushie.netlify.app/) om het zelf te zien.
+je kan ook naar [pokeplushie.netlify.app](https://pokeplushie.netlify.app/) om het zelf te zien.

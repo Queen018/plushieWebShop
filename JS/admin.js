@@ -47,7 +47,14 @@ function addProduct(event) {
     const image = document.getElementById("productImage").value;
 
     const products = JSON.parse(localStorage.getItem("user")) || [];
-    products.push({ id, name, price, size, amount, image });
+    products.push({
+        id,
+        name,
+        price,
+        size,
+        amount,
+        image,
+    });
     localStorage.setItem("user", JSON.stringify(products));
 
     alert("Product added successfully!");
@@ -97,11 +104,25 @@ function changeProduct(event) {
 
     if (index !== -1) {
         // If product exists, update it
-        products[index] = { id, name, price, size, amount, image };
+        products[index] = {
+            id,
+            name,
+            price,
+            size,
+            amount,
+            image,
+        };
         alert("Product updated successfully!");
     } else {
         // If product does not exist, add it
-        products.push({ id, name, price, size, amount, image });
+        products.push({
+            id,
+            name,
+            price,
+            size,
+            amount,
+            image,
+        });
         alert("Product added successfully!");
     }
 
@@ -127,7 +148,7 @@ function resetProducts() {
 
 function clearLocalStorage() {
     localStorage.clear("user");
-    location.reload();
+    window.location.reload();
 }
 
 function logLocalStorage() {

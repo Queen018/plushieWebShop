@@ -26,10 +26,9 @@ window.addEventListener("load", () => {
         const searchInput = document.getElementById("searchInput").value.toLowerCase();
         const data = JSON.parse(localStorage.getItem("user"));
         const filteredData = data.filter(item => item.name.toLowerCase().includes(searchInput));
-        
         if (filteredData.length === 0) {
-            const container = document.getElementById("people-container");
-            container.innerHTML = "<h2>No results found</h2>";
+            const container1 = document.getElementById("people-container");
+            container1.innerHTML = "<h2>No results found</h2>";
         } else {
             displayClothing(filteredData);
         }
@@ -44,7 +43,12 @@ function itemsInCart(name, image, price, amount) {
     if (itemIndex !== -1) {
         cart[itemIndex].amount += amount;
     } else {
-        cart.push({ name, image, amount, price });
+        cart.push({
+            name,
+            image,
+            amount,
+            price,
+        });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -64,15 +68,18 @@ function displayClothing(data) {
         userDiv.classList.add("col-12");
         userDiv.classList.add("col-lg-4");
         userDiv.classList.add("col-sm-6");
-        userDiv.innerHTML = `<div class="plushieContainer p-1">
-                                <img src="${item.image}" alt="PlushiePicture">
-                                <h3>${item.name}</h3>
-                                <p>Size: ${item.size}</p>
-                                <p>€${item.price}</p>
-                                <div class="buttons">
-                                    <button class="btnBgText" type="button" onclick="itemsInCart('${item.name}', '${item.image}', '${item.price}', 1), addedAlert('${item.name}', '${item.image}');">Toevoegen</button>
-                                </div>
-                            </div>`;
+        userDiv.innerHTML = `
+        <div class="plushieContainer p-1">
+            <img src="${item.image}" alt="PlushiePicture">
+            <h3>${item.name}</h3>
+            <p>Size: ${item.size}</p>
+            <p>€${item.price}</p>
+            <div class="buttons">
+                <button class="btnBgText" type="button" 
+                onclick="itemsInCart('${item.name}', '${item.image}', '${item.price}', 1), 
+                addedAlert('${item.name}', '${item.image}');">Toevoegen</button>
+            </div>
+        </div>`;
         container.appendChild(userDiv);
     });
     JSON.parse(localStorage.getItem("user")).forEach(item => console.log(item));
@@ -87,10 +94,12 @@ function addedAlert(name, image) {
     alertContainer.classList.add("translate-middle");
     alertContainer.classList.add("z-2");
     alertContainer.style.transition = "opacity 1s";
-    alertContainer.innerHTML = `<div class="alertProduct p-3 rounded-5 border border-3 border-success d-flex align-items-center justify-content-center">
-                                    <img src="${image}" alt="plushiePictureAdded">
-                                    <h3>${name} Added To Cart</h3>
-                                </div>`;
+    alertContainer.innerHTML = `
+    <div class="alertProduct p-3 rounded-5 border border-3 border-success
+    d-flex align-items-center justify-content-center">
+        <img src="${image}" alt="plushiePictureAdded">
+        <h3>${name} Added To Cart</h3>
+    </div>`;
 
     document.body.appendChild(alertContainer);
 
@@ -114,7 +123,7 @@ function resetFilter() {
 }
 
 function allSizes() {
-    const data = JSON.parse(localStorage.getItem("user"))
+    const data = JSON.parse(localStorage.getItem("user"));
     displayClothing(data);
 }
 
@@ -128,8 +137,7 @@ login.addEventListener("click", logSillyMessageFrom);
 function logSillyMessageFrom() {
     if (email.value === "admin" && password.value === "1234") {
         window.location.href = "../pages/admin.html";
-    }
-    else {
+    } else {
         const invalid = document.querySelector("#invalid");
         invalid.style.display = "block";
         setTimeout(() => {

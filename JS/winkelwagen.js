@@ -51,7 +51,7 @@ function displayItemsCart() {
 
 function clearLocalStorage() {
     localStorage.clear();
-    location.reload();
+    window.location.reload();
 }
 
 // Login JS
@@ -64,8 +64,7 @@ login.addEventListener("click", logSillyMessageFrom);
 function logSillyMessageFrom() {
     if (email.value === "admin" && password.value === "1234") {
         window.location.href = "../pages/admin.html";
-    }
-    else {
+    } else {
         const invalid = document.querySelector("#invalid");
         invalid.style.display = "block";
         setTimeout(() => {
