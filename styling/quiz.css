@@ -1,51 +1,7 @@
-:root {
-    --nav-bg-color: #824882;
-    --nav-text-color: #edd1d2;
-    --main-bg-color: #e77664;
-    --main-text-color: #f7d070;
-    --footer-bg-color: #face75;
-    --footer-text-color: #526153;
-    --button-bg-color: #1f0822;
-    --button-bg-textcolor: #dddfae;
-    --items-bg-color: #d17fc7;
-    --items-text-color: #210720;
-}
-
-body {
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-}
-
-nav {
-    min-height: 50px;
-    background-color: var(--nav-bg-color);
-    color: var(--nav-text-color);
-    border-radius: 0px 0px 15px 15px;
-}
-
-.navText {
-    color: var(--nav-text-color);
-    border-color: var(--nav-text-color);
-}
-
-.navText:hover {
-    color: var(--nav-text-color);
-}
+@import url("/styling/allNeeded.css");
 
 .bi-cart2, .quizButton {
     font-size: 20px;
-}
-
-.btnBgText {
-    background-color: var(--button-bg-color);
-    color: var(--button-bg-textcolor);
-    border: solid 2px var(--button-bg-textcolor);
-    padding: 8px;
-    border-radius: 8px;
 }
 
 .btnBgText::placeholder {
@@ -85,13 +41,6 @@ nav {
     background-color: var(--main-text-color);
     color: var(--main-bg-color);
 }
-
-.inloggen {
-    background-color: var(--items-bg-color);
-    border: solid 2px;
-    border-radius: 15px;
-}
-
 
 .PlushieContainer > img {
     margin-bottom: 10px;

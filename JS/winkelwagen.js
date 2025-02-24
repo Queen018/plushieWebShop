@@ -48,6 +48,25 @@ function displayItemsCart() {
     });
 }
 
+function setOrder() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const time = new Date().toISOString();
+    const newOrder = { items: cart, time };
+
+    orders.push(newOrder);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    localStorage.removeItem("cart");
+
+    displayItemsCart(); // Update the cart display after placing the order
+    totalPrice(); // Update the total price after placing the order
+}
 
 function clearLocalStorage() {
     localStorage.clear();

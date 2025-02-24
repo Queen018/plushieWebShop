@@ -69,46 +69,20 @@
             <div class="col-12 col-lg-4 col-sm-6">
                 <button type="button" id="resetProducts" class="bg-secondary text-light border border-primary border-5">Reset Products</button>
             </div>
-        </form>
-
-        <!-- Remove Product Form -->
-        <form id="removeProducts" class="row text-center gx-3 gy-2 m-1 mt-3">
             <div class="col-12 col-lg-4 col-sm-6">
-                <input type="number" class="bg-secondary text-light border border-danger border-5" id="removeProductID" placeholder="Product ID to Remove">
-            </div>
-            <div class="col-12 col-lg-4 col-sm-6">
-                <button type="submit" class="bg-secondary text-light border border-danger border-5">Remove Product</button>
-            </div>
-        </form>        
-
-        <!-- Change Product Form -->
-        <form id="changeProducts" class="row text-center gx-3 gy-2 m-1 mt-3">
-            <div class="col-12 col-lg-4 col-sm-6">
-                <input type="number" class="bg-secondary text-light border border-warning border-5" id="changeProductID" placeholder="Product ID to Change">
-            </div>
-            <div class="col-12 col-lg-4 col-sm-6">
-                <input type="text" class="bg-secondary text-light border border-warning border-5" id="changeProductName" placeholder="New Product Name">
-            </div>
-            <div class="col-12 col-lg-4 col-sm-6">
-                <input type="text" class="bg-secondary text-light border border-warning border-5" id="changeProductSize" placeholder="New Product Size">
-            </div>
-            <div class="col-12 col-lg-4 col-sm-6">
-                <input type="number" class="bg-secondary text-light border border-warning border-5" id="changeProductAmount" placeholder="New Product Amount">
-            </div>
-            <div class="col-12 col-lg-4 col-sm-6">
-                <input type="number" class="bg-secondary text-light border border-warning border-5" id="changeProductPrice" placeholder="New Product Price">
-            </div>
-            <div class="col-12 col-lg-4 col-sm-6">
-                <input type="text" class="bg-secondary text-light border border-warning border-5" id="changeProductImage" placeholder="New Product Image URL">
-            </div>
-            <div class="col-12 col-lg-4 col-sm-6">
-                <button type="submit" class="bg-secondary text-light border border-warning border-5">Change Product</button>
+                <button type="button" id="deleteOrders" class="bg-secondary text-light border border-primary border-5">Delete Orders</button>
             </div>
         </form>
 
-        <h1 class="text-center my-2">Orders</h1>
+        <h1 class="text-center my-5">Products</h1>
+        <form class="form-inline mt-3" id="searchForm">
+            <input class="form-control btnBgText" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+            <button class="btn btn-outline-light btnBgText" id="searchBtn" type="submit">Search</button>
+        </form>
+        <div id="productsContainer" class="row text-center gx-3 gy-2 m-1 mt-3"></div>
+
+        <h1 class="text-center my-5">Orders</h1>
         <div id="ordersContainer" class="row text-center gx-3 gy-2 m-1 mt-3"></div>
-
     </main>
     
     
@@ -117,7 +91,7 @@
             <a class="navbar-brand col-4  mt-4 d-flex flex-column justify-content-center align-items-center" href="#">
                 <h3>PokePlush</h3>
                 <p><i class="bi bi-c-circle "></i> Wilkes .Co</p>
-                <hr>
+                <hr class="hr" />
             </a>
 
             <div class="d-flex flex-column text-center  mt-4">
@@ -131,41 +105,42 @@
                 </div>
                 <div>
                     <i class="bi bi-envelope-fill"></i>
-                    <p>Wilkes@jemoeder.com</p>
+                    <p>Wilkes@deBeste.com</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content inloggen">
             <div class="modal-header d-flex justify-content-between">
-                <h4 class="modal-title">Login</h4>
+                <h4 class="modal-title" id="modal-title"></h4>
                 <button type="button" class="btn-close border-0" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <form>
-                    <div class="invalid alert alert-danger" role="alert" id="invalid">
-                        Invalid password or email
+                <form id="changeProducts" class="row text-center gx-3 gy-2 m-1 mt-3">
+                    <div class="col-12">
+                        <input type="text" class="btnBgText" id="changeProductName" placeholder="New Product Name">
                     </div>
-                    <div class="form-group p-1 my-3">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control bg-secondary mt-2" id="exampleInputEmail1" placeholder="Enter email">
+                    <div class="col-12 col-sm-6">
+                        <input type="text" class="btnBgText" id="changeProductSize" placeholder="New Product Size">
                     </div>
-                    <div class="form-group p-1 my-3">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control bg-secondary mt-2" id="exampleInputPassword1" placeholder="Password">
+                    <div class="col-12 col-sm-6">
+                        <input type="number" class="btnBgText" id="changeProductAmount" placeholder="New Product Amount">
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input type="number" class="btnBgText" id="changeProductPrice" placeholder="New Product Price">
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input type="text" class="btnBgText" id="changeProductImage" placeholder="New Product Image URL">
+                    </div>
+                    <div class="col-12 mt-4 p-2" id="changeProductButton">
                     </div>
                 </form>
               </div>
-              <div class="modal-footer d-flex justify-content-between">
-                <a href="#"></a>
-                <button type="submit" class="btn btn-primary my-2 border-0" id="login">Login</button>
-            </div>
         </div>
         </div>
     </div>

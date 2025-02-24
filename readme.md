@@ -13,9 +13,10 @@ Dit project was bedoel om te oefenen met de skills die ik heb en er iets leuk ui
 ## Features voor Admin
 
 - **Product Toevoegen**: je kan producten toevoegen
-- **Product Toevoegen**: je kan producten verwijderen met de Product ID
-- **Product Wijzigen**: je kan producten wijziggen met de product Id (de id kan je niet wijzigen)
-- **Reset**: je kan alle producten reseten naar het orginele producten
+- **Product Toevoegen**: er staat een thrash icon, als je dat klikt verwijder je de product
+- **Product Wijzigen**: er staat een pencil icon, als je erop klikt kan je het wijzigen.
+- **Reset Products**: je kan alle producten reseten naar het orginele producten
+- **Delete Orders**: je kan alle orders deleten
 
 ## Credits
 
