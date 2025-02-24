@@ -90,6 +90,13 @@ function addProduct(event) {
     }
 
     const products = JSON.parse(localStorage.getItem("user")) || [];
+    const existingProduct = products.find(product => product.id === id);
+
+    if (existingProduct) {
+        alert("A product with this ID already exists. Please use a different ID.");
+        return;
+    }
+
     products.push({
         id,
         name,
